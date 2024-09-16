@@ -1,0 +1,913 @@
+{
+	"info": {
+		"_postman_id": "e8d6daa0-8f6e-4b13-ae3b-f570fa144a07",
+		"name": "ms.credit-manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24624012"
+	},
+	"item": [
+		{
+			"name": "CREATE CUSTOMER",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pin\": \"1234567\",\r\n  \"fullName\": \"Turgud\",\r\n  \"phoneNumber\": \"+994516565656\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATED",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pin\": \"1234567\",\r\n  \"fullName\": \"Turgud\",\r\n  \"phoneNumber\": \"+994516565656\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:07:50 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "CONFLICT",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pin\": \"1234567\",\r\n  \"fullName\": \"Turgud\",\r\n  \"phoneNumber\": \"+994516565656\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"status": "Conflict",
+					"code": 409,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 16 Sep 2024 11:52:42 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Müştəri artıq mövcuddur\"\n}"
+				},
+				{
+					"name": "BAD REQUEST",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pin\": \"123456\",\r\n  \"fullName\": \"\",\r\n  \"phoneNumber\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/customers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customers"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:07:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Doğrulama xətası baş verdi\",\n    \"validationErrors\": [\n        {\n            \"field\": \"phoneNumber\",\n            \"message\": \"Telefon formatı yanlışdır\"\n        },\n        {\n            \"field\": \"fullName\",\n            \"message\": \"Müştəri adı boş ola bilməz\"\n        },\n        {\n            \"field\": \"pin\",\n            \"message\": \"Fin kod 7 simvoldan ibarət olmalıdır\"\n        },\n        {\n            \"field\": \"phoneNumber\",\n            \"message\": \"Telefon nömrəsi boş ola bilməz\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET CUSTOMER BY PIN",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/customers?pin=1234567",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"customers"
+					],
+					"query": [
+						{
+							"key": "pin",
+							"value": "1234567"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 16:21:48 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"pin\": \"1234567\",\n    \"fullName\": \"Turgud\",\n    \"phoneNumber\": \"+994516565656\"\n}"
+				},
+				{
+					"name": "NOT FOUND",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/customers/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"customers",
+								"1"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 18:25:09 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Müştəri tapılmadı\"\n}"
+				}
+			]
+		},
+		{
+			"name": "CREATE CREDIT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"customerId\": 1,\r\n  \"term\": 10,\r\n  \"amount\": 10000.00,\r\n  \"interest\": 100.00,\r\n  \"monthlyPayment\": 220.00\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/credits",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"credits"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CREATED",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": 1,\r\n  \"term\": 10,\r\n  \"amount\": 10000.00,\r\n  \"interest\": 100.00,\r\n  \"monthlyPayment\": 220.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/credits",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:08:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "BAD REQUEST",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"customerId\": null,\r\n  \"term\": null,\r\n  \"amount\": null,\r\n  \"interest\": null,\r\n  \"monthlyPayment\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/v1/credits",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:08:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Doğrulama xətası baş verdi\",\n    \"validationErrors\": [\n        {\n            \"field\": \"customerId\",\n            \"message\": \"Müştəri ID-si boş ola bilməz\"\n        },\n        {\n            \"field\": \"amount\",\n            \"message\": \"Kredit məbləği doldurulmalıdır\"\n        },\n        {\n            \"field\": \"term\",\n            \"message\": \"Kredit müddəti doldurulmalıdır\"\n        },\n        {\n            \"field\": \"monthlyPayment\",\n            \"message\": \"Aylıq ödəniş doldurulmalıdır\"\n        },\n        {\n            \"field\": \"interest\",\n            \"message\": \"Faiz doldurulmalıdır\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GET OFFERS BY CREDIT ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/offers?creditId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"offers"
+					],
+					"query": [
+						{
+							"key": "creditId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/offers?creditId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"offers"
+							],
+							"query": [
+								{
+									"key": "creditId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 16:22:19 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"accepted\": false,\n        \"term\": 722,\n        \"amount\": 568,\n        \"interest\": 81,\n        \"monthlyPayment\": 706,\n        \"minimumAmount\": 568\n    },\n    {\n        \"id\": 2,\n        \"accepted\": false,\n        \"term\": 884,\n        \"amount\": 881,\n        \"interest\": 568,\n        \"monthlyPayment\": 735,\n        \"minimumAmount\": 881\n    },\n    {\n        \"id\": 3,\n        \"accepted\": false,\n        \"term\": 307,\n        \"amount\": 890,\n        \"interest\": 574,\n        \"monthlyPayment\": 951,\n        \"minimumAmount\": 890\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ACCEPT CREDIT",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/credits/1/accept?offerId=1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"credits",
+						"1",
+						"accept"
+					],
+					"query": [
+						{
+							"key": "offerId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "NO CONTENT",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/credits/1/accept?offerId=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits",
+								"1",
+								"accept"
+							],
+							"query": [
+								{
+									"key": "offerId",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:09:13 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "REJECT CREDIT",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/credits/1/reject",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"credits",
+						"1",
+						"reject"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "NOT FOUND",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/credits/1/reject",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits",
+								"1",
+								"reject"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:09:27 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Kredit tapılmadı\"\n}"
+				},
+				{
+					"name": "NO CONTENT",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/credits/5/reject",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits",
+								"5",
+								"reject"
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 20:09:40 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GET CREDIT BY ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept-Language",
+						"value": "az",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8080/v1/credits/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"credits",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "SUCCESS",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/v1/credits/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 16:38:36 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 1,\n    \"status\": \"ACCEPTED\",\n    \"term\": 899,\n    \"amount\": 61,\n    \"interest\": 759,\n    \"monthlyPayment\": 821,\n    \"conveyorId\": 567080,\n    \"checkDate\": \"2024-09-17 16:38:22\",\n    \"statusHistories\": [\n        {\n            \"id\": 1,\n            \"status\": \"DRAFT\"\n        },\n        {\n            \"id\": 2,\n            \"status\": \"ACCEPTED\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "NOT FOUND",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept-Language",
+								"value": "az",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/v1/credits/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"v1",
+								"credits",
+								"2"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 15 Sep 2024 18:26:23 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Kredit tapılmadı\"\n}"
+				}
+			]
+		}
+	]
+}
