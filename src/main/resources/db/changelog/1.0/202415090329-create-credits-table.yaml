@@ -1,0 +1,56 @@
+databaseChangeLog:
+  - changeSet:
+      id: 202415090329
+      author: Turgud Guliyev
+      changes:
+        - createTable:
+            tableName: credits
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status
+                  type: VARCHAR(32)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: term
+                  type: INTEGER
+              - column:
+                  name: amount
+                  type: NUMERIC(16,2)
+              - column:
+                  name: interest
+                  type: NUMERIC(16,2)
+              - column:
+                  name: monthly_payment
+                  type: NUMERIC(16,2)
+              - column:
+                  name: conveyor_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: check_date
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  defaultValue: now()
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  defaultValue: now()
+              - column:
+                  name: customer_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_credits_customers
+                    references: customers(id)

@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+  jpa:
+    open-in-view: false
+
+client:
+  urls:
+    credit-conveyor: https://polar-lowlands-53572-4147c5b66e05.herokuapp.com
